@@ -163,10 +163,7 @@ private extension UIApplication {
    Fixes issue-44. See issue-44 for more info.
    */
   func fixRootViewY() {
-    #if os(tvOS)
-    return
-    #endif
-    
+    #if !os(tvOS)
     guard statusBarFrame.height == 40, let window = keyWindow, let vc = window.rootViewController else {
       return
     }
@@ -174,5 +171,6 @@ private extension UIApplication {
     if vc.view.frame.maxY + 20 == window.frame.height {
       vc.view.frame.origin.y += 20
     }
+    #endif
   }
 }
