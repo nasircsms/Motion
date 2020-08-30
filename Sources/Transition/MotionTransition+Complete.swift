@@ -163,6 +163,10 @@ private extension UIApplication {
    Fixes issue-44. See issue-44 for more info.
    */
   func fixRootViewY() {
+    #if os(tvOS)
+    return
+    #endif
+    
     guard statusBarFrame.height == 40, let window = keyWindow, let vc = window.rootViewController else {
       return
     }
