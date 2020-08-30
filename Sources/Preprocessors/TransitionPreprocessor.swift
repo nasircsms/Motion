@@ -326,7 +326,7 @@ class TransitionPreprocessor: MotionCorePreprocessor {
       }
       
       #if os(tvOS)
-      context[fv] = [.fade]
+      context[fv] = [.fade(0)]
       #else
       if (!isPresenting && toOverFullScreen) || !fv.isOpaque || (fv.backgroundColor?.alphaComponent ?? 1) < 1 {
         context[fv] = [.fadeOut]
